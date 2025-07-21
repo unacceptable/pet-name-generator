@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Name Generator 🐾</title>
+    <meta name="description" content="Find the perfect name for your furry, feathered, or finned friend with our delightful pet name generator!">
+    <meta name="keywords" content="pet names, dog names, cat names, bird names, fish names, rabbit names, pet name generator">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Pet Names">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">
+                <i class="fas fa-paw"></i>
+                Pet Name Generator
+                <i class="fas fa-heart"></i>
+            </h1>
+            <p class="subtitle">Find the perfect name for your furry, feathered, or finned friend!</p>
+        </header>
+
+        <!-- Pet Type Selection -->
+        <section class="pet-selection">
+            <h2>Step 1: Choose Your Pet Type</h2>
+            <div class="pet-grid">
+                <div class="pet-card" data-type="dog">
+                    <i class="fas fa-dog"></i>
+                    <span>Dog</span>
+                </div>
+                <div class="pet-card" data-type="cat">
+                    <i class="fas fa-cat"></i>
+                    <span>Cat</span>
+                </div>
+                <div class="pet-card" data-type="bird">
+                    <i class="fas fa-dove"></i>
+                    <span>Bird</span>
+                </div>
+                <div class="pet-card" data-type="fish">
+                    <i class="fas fa-fish"></i>
+                    <span>Fish</span>
+                </div>
+                <div class="pet-card" data-type="rabbit">
+                   <i class="fas fa-carrot"></i>
+                    <span>Rabbit</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Name Generation Options -->
+        <section class="options-section hidden" id="optionsSection">
+            <div class="options-card">
+                <h3>Step 2: Generation Options</h3>
+                <div class="option-group">
+                    <label for="nameCount">Number of Names:</label>
+                    <div class="count-selector">
+                        <button type="button" class="count-btn" data-action="decrease">-</button>
+                        <input type="number" id="nameCount" min="1" max="10" value="3" readonly>
+                        <button type="button" class="count-btn" data-action="increase">+</button>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="generate-btn" id="generateNames">
+                        <i class="fas fa-magic"></i>
+                        Generate Names
+                    </button>
+                    <button class="random-btn" id="randomName">
+                        <i class="fas fa-dice"></i>
+                        Random Name
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection">
+            <div class="results-card">
+                <h3>Step 3: Choose Your Perfect Pet Name</h3>
+                <div class="names-container" id="namesContainer">
+                    <!-- Generated names will appear here -->
+                </div>
+                <button class="copy-btn" id="copyNames" style="display: none;">
+                    <i class="fas fa-copy"></i>
+                    Copy Names
+                </button>
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div class="loading" id="loadingSpinner">
+            <div class="spinner"></div>
+            <p>Generating perfect names...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span id="errorText">Something went wrong. Please try again!</span>
+            <button class="close-error" id="closeError">&times;</button>
+        </div>
+
+        <!-- Fun Facts Section -->
+        <section class="fun-facts">
+            <h3>Did You Know? 🤔</h3>
+            <div class="fact-card" id="funFact">
+                <p>Click "Generate Names" to get started and discover fun pet facts!</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with <i class="fas fa-heart"></i> for pet lovers everywhere</p>
+            <div class="footer-links">
+                <a href="/docs" target="_blank">
+                    <i class="fas fa-book"></i>
+                    API Docs
+                </a>
+                <a href="/health" target="_blank">
+                    <i class="fas fa-heartbeat"></i>
+                    Health Check
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
